@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes</title>
+    <link rel="stylesheet" href="./assests/bootstrap/bootstrap..css">
+    <link rel="stylesheet" href="./assests/css/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+</head>
+
+<body>
+    <!-- section navbar start -->
+    <section class=" ">
+        <div
+            class="d-flex justify-content-between align-items-center flex-wrap bg-white shadowClass paddingMob py-3  px-5  ">
+            <div>
+                <a href=""><img src="./assests/images/Frame 6.png"></a>
+            </div>
+            <div>
+                <a href=""><img src="./assests/images/Frame 707.png"></a>
+                <a href=""><img src="./assests/images/Frame 710.png"></a>
+            </div>
+        </div>
+    </section>
+    <!-- section navbar end -->
+    <section class="Padding-LR bg-colorgrey my-3">
+
+        <div class="d-flex flex-wrap justify-content-between  align-items-center mobflexwrap">
+            <div class="p t-10 flex-grow-1">
+                Note your credentials
+            </div>
+            <div class="d-flex row p-0  gap-2 flex-grow-3 justify-content-between float-end align-items-center ">
+                <div class="d-flex   gap-24 t-10 float-end col-lg-5 col-md-4 col-sm-10 col-10   align-items-center ">
+                    <div class=" text-nowrap">
+                        <span class="fs-14 pe-2">Showing</span>
+                        <span class="fs-14"><strong>0 entries</strong></span>
+                    </div>
+                    <div class=" d-flex flex-nowrap gap-14">
+                        <a href=""><img src="./assests/images/Icons (1).png"></a>
+                        <span class="fs-14 text-nowrap">1 of 4</span>
+                        <a href=""><img src="./assests/images/Icons.png"></a>
+                    </div>
+                </div>
+                <div  class=" position-relative  justify-content-between align-content-center col-lg-4  col-md-4 col-sm-7 col-10  rounded p-0">
+                    <input type="search" class="form-control rounded search_input" placeholder="Search"
+                        aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text position-absolute search_icon" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+                            </path>
+                        </svg>
+                    </span>
+                    </span>
+                </div>
+
+                <button type="button"
+                    class="btn btn-lg  btn-outline-primary px-6 flex flex-nowrap add_btn fs-16 col-lg-2 col-md-6 col-sm-4 col-10"
+                    data-bs-toggle="modal" data-bs-target="#alert">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor" />
+                    </svg>
+
+                    Create note
+                </button>
+
+
+    </section>
+
+
+
+    <div class="table-responsive tt-table-responsive mt-lg-4 mt-sm-2 mt-2">
+        <div id="grid"></div>
+        <table class="table  tt-statis-table w-100 mt-3 text-center">
+            <thead>
+                <tr class="bg-white">
+                    <th class="py-3 px-3">
+                        <div class="b">
+                            <div class="d-flex  flex-nowrap justify-content-center px-4 ">
+                                <span class="px-2 fs-16 "> Title</span>
+                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="py-3 px-3">
+                        <div class="b ">
+                            <div class="d-flex  flex-nowrap  justify-content-center">
+                                <span class="px-2 fs-16 text-nowrap">Notes</span>
+                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="py-3 px-3">
+                        <div class="b ">
+                            <div class="px-4 d-flex justify-content-center flex-nowrap">
+                                <span class="px-2 fs-16 text-nowrap"> Actions</span>
+                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td class="py-3 px-3  fs-16  text-center">Notes Title </td>
+                    <td class="  px-3 py-3 fs-14  colorText text-center">Notes Description </td>
+                    <td class="py-3 px-3 fs-14 d-flex gap-4 text-center justify-content-center ">
+                        <button type="button" class="close border-0  bg-transparent"   data-bs-toggle="modal" data-bs-target="#edit">
+                            <img src="./assests/images/edit.png" />
+                        </button>
+    </div>
+    <button type="button" class="close border-0  bg-transparent"   data-bs-toggle="modal" data-bs-target="#delete">
+        <img src="./assests/images/delete.png" />
+    </button>
+    </div>
+    <button type="button" class="close border-0  bg-transparent"    data-bs-toggle="modal" data-bs-target="#share">
+        <img src="./assests/images/share.png" />
+    </button>
+    </div>
+    </td>
+
+    </tr>
+
+    </tbody>
+    </table>
+    </div>
+    <!-- Modal to create Note -->
+    <div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center"> <img src="./assests/images/add.svg" />
+                        <h5>Create Note</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1">
+                    <div class="mb-2">
+                        <label for="title" class="form-label">Title:</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="form-label">Note:</label>
+                        <textarea rows="6" class="form-control" id="note" placeholder="Note"></textarea>
+                    </div>
+                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
+                        <button style="width: 70%;" class="modal_btn flex-grow-1">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to edit Note -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Edit Note</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1">
+                    <div class="mb-2">
+                        <label for="title" class="form-label">Title:</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+                    <div class="mb-2">
+                        <label for="note" class="form-label">Note:</label>
+                        <textarea rows="6" class="form-control" id="note" placeholder="Note"></textarea>
+                    </div>
+                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
+                        <button style="width: 70%;" class="modal_btn flex-grow-1">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to Delete Note -->
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Delete Note</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1">
+                    <p class="mt-1 mb-2 colorText text-center ">Are you sure you want to delete this note?</p>
+                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
+                        <button  class="modal_btn flex-grow-1">Yes, Delete</button>
+                        <button  class="modal_btn flex-grow-1">Don't Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="./assests/bootstrap/bootstrap.js "></script>
+</body>
+
+</html>

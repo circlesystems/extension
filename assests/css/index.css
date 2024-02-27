@@ -1,0 +1,139 @@
+@media screen and (min-width:300px) and (max-width:768px) {
+    .Padding-LR {
+        padding: 0px 20px !important;
+       
+    }
+    .paddingMob {
+        padding: 1rem 1rem !important;
+    }
+    .paddingMobtop {
+padding: 15px 0px !important;
+    }
+    .input-group {
+        width: 100% !important;
+        padding-top: 15px;
+    }
+    .mobflexwrap1 {
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width:300px) and (max-width:592px) {
+    .mobflexwrap {
+        flex-wrap: wrap;
+    }
+}
+
+
+*{
+    padding: 0px;
+    margin: 0px; 
+    box-sizing: border-box;
+}
+.spaceTop {
+    padding: 34px 0px !important;
+}
+.Padding-LR {
+    padding: 0px 50px;
+   
+}
+/* .bg-colorgrey {
+    background-color: #F6F8FB;
+} */
+.shadowClass {
+    box-shadow: 0px 0px 8px 0px #00000014;
+
+}
+
+body {
+    background-color: #F6F8FB;
+    /* font-family: Open Sans; */
+}
+.fs-class {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+/* css page desktop-9 start*/
+.input-group-text {
+    background-color: transparent;
+    border:none; 
+} 
+.form-check-input {
+    background-color: transparent;
+
+}
+.colorText {
+    color: #5F5F5F;
+}
+.fs-14 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.fs-16 {
+    font-size: 16px;
+    font-weight: 500;
+}
+.input-group {
+    width: 40%;
+}
+.spaceTop1 {
+    padding: 14px 0px !important;
+}
+.spaceTop2 {
+    padding: 8px 0px !important;
+}
+.search_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute !important;
+    top: 0;
+}
+.search_input{
+    padding-left: 40px !important;
+}
+.add_btn{
+    font-size: 15px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    gap: 5px;
+    font-weight: 500;
+}
+.gap-24{
+    display: flex;
+    gap:24px;
+    text-align: center;
+}
+.gap-14{
+    display: flex;
+    gap:14px;
+    text-align: center;
+}
+.t-10{
+    transform: translateX(-10px)
+}
+.modal_btn {
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    background: #41B8B6;
+    padding: 12px 47px;
+    border-radius: 8px;
+    border: 1px #41B8B6 solid;
+  }
+  
+  .modal_btn:hover {
+  
+    border: 1px #41B8B6 solid;
+    padding: 12px 47px;
+    background-color: white;
+    color: #41B8B6 !important;
+  }
+ 
