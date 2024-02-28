@@ -1,18 +1,15 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Notes</title>
     <link rel="stylesheet" href="./assests/bootstrap/bootstrap..css">
     <link rel="stylesheet" href="./assests/css/index.css">
+    <link href="./assests/DataTables/datatables.min.css" rel="stylesheet">
+    <link href="./assests/css/notes.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-</head>
-
 <body>
     <!-- section navbar start -->
     <section class=" ">
@@ -28,111 +25,35 @@
         </div>
     </section>
     <!-- section navbar end -->
-    <section class="Padding-LR bg-colorgrey my-3">
-
-        <div class="d-flex flex-wrap justify-content-between  align-items-center mobflexwrap">
-            <div class="p t-10 flex-grow-1">
-                Note your credentials
-            </div>
-            <div class="d-flex row p-0  gap-2 flex-grow-3 justify-content-between float-end align-items-center ">
-                <div class="d-flex   gap-24 t-10 float-end col-lg-5 col-md-4 col-sm-10 col-10   align-items-center ">
-                    <div class=" text-nowrap">
-                        <span class="fs-14 pe-2">Showing</span>
-                        <span class="fs-14"><strong>0 entries</strong></span>
-                    </div>
-                    <div class=" d-flex flex-nowrap gap-14">
-                        <a href=""><img src="./assests/images/Icons (1).png"></a>
-                        <span class="fs-14 text-nowrap">1 of 4</span>
-                        <a href=""><img src="./assests/images/Icons.png"></a>
-                    </div>
-                </div>
-                <div  class=" position-relative  justify-content-between align-content-center col-lg-4  col-md-4 col-sm-7 col-10  rounded p-0">
-                    <input type="search" class="form-control rounded search_input" placeholder="Search"
-                        aria-label="Search" aria-describedby="search-addon" />
-                    <span class="input-group-text position-absolute search_icon" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
-                            </path>
-                        </svg>
-                    </span>
-                    </span>
-                </div>
-
-                <button type="button"
-                    class="btn btn-lg  btn-outline-primary px-6 flex flex-nowrap add_btn fs-16 col-lg-2 col-md-6 col-sm-4 col-10"
-                    data-bs-toggle="modal" data-bs-target="#alert">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor" />
-                    </svg>
-
-                    Create note
-                </button>
-
-
-    </section>
-
-
-
-    <div class="table-responsive tt-table-responsive mt-lg-4 mt-sm-2 mt-2">
-        <div id="grid"></div>
-        <table class="table  tt-statis-table w-100 mt-3 text-center">
-            <thead>
-                <tr class="bg-white">
-                    <th class="py-3 px-3">
-                        <div class="b">
-                            <div class="d-flex  flex-nowrap justify-content-center px-4 ">
-                                <span class="px-2 fs-16 "> Title</span>
-                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="py-3 px-3">
-                        <div class="b ">
-                            <div class="d-flex  flex-nowrap  justify-content-center">
-                                <span class="px-2 fs-16 text-nowrap">Notes</span>
-                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
-                            </div>
-                        </div>
-                    </th>
-                    <th class="py-3 px-3">
-                        <div class="b ">
-                            <div class="px-4 d-flex justify-content-center flex-nowrap">
-                                <span class="px-2 fs-16 text-nowrap"> Actions</span>
-                                <a href=""><img src="./assests/images/Group 1171275328.png" width="18px"></a>
-                            </div>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="">
-                    <td class="py-3 px-3  fs-16  text-center">Notes Title </td>
-                    <td class="  px-3 py-3 fs-14  colorText text-center">Notes Description </td>
-                    <td class="py-3 px-3 fs-14 d-flex gap-4 text-center justify-content-center ">
-                        <button type="button" class="close border-0  bg-transparent"   data-bs-toggle="modal" data-bs-target="#edit">
-                            <img src="./assests/images/edit.png" />
-                        </button>
+    <div class="Padding-LR ps-4 t-10 fs-14 flex-grow-1 notes_title  bg-colorgrey my-3">
+                Note your credentials  
     </div>
-    <button type="button" class="close border-0  bg-transparent"   data-bs-toggle="modal" data-bs-target="#delete">
-        <img src="./assests/images/delete.png" />
-    </button>
-    </div>
-    <button type="button" class="close border-0  bg-transparent"    data-bs-toggle="modal" data-bs-target="#share">
-        <img src="./assests/images/share.png" />
-    </button>
-    </div>
-    </td>
-
-    </tr>
-
-    </tbody>
+    <!-- Table starts -->
+    <div class="table-responsive pt-3">
+       
+  
+    <table id="notes_table" class="table  tt-statis-table w-100 mt-3 text-center">
+        <thead>
+            <tr style="width: 100vw;" class="bg-white">
+                <th class="py-3 px-3 px-2 fs-16 ">
+                    Title
+                </th>
+                <th class="py-3 px-3 px-2 fs-16 text-nowrap">
+                    Notes
+                </th>
+                <th class="py-3 px-3 px-2 fs-16 text-nowrap">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
-    </div>
+</div>
+    <!-- Table ends -->
+
     <!-- Modal to create Note -->
-    <div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="border-bottom: none;">
@@ -205,17 +126,65 @@
                 <div class="modal-body  mb-1">
                     <p class="mt-1 mb-2 colorText text-center ">Are you sure you want to delete this note?</p>
                     <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                        <button  class="modal_btn flex-grow-1">Yes, Delete</button>
-                        <button  class="modal_btn flex-grow-1">Don't Delete</button>
+                        <button class="modal_btn flex-grow-1">Yes, Delete</button>
+                        <button class="modal_btn flex-grow-1">Don't Delete</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+     <!-- Modal to Share Note -->
+     <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content"> 
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Share Note</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                
+                <div class="modal-body  mb-1 pt-0">
+                    <div>
+                        <img src="./assests/images/nb.png" />
+                        Test File Name
+                    </div>
+                    <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                        <li class="nav-item flex-grow-1" role="presentation">
+                          <button class="nav-link active w-100" id="profile" data-bs-toggle="tab" data-bs-target="#people" type="button" role="tab" aria-controls="home" aria-selected="true">People</button>
+                        </li>
+                        <li class="nav-item flex-grow-1 " role="presentation">
+                          <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#group" type="button" role="tab" aria-controls="group" aria-selected="false">Group</button>
+                        </li>
+                       
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive pt-3">
+       
+  
+                                <table id="actions_groups_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                    
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="group" role="group" aria-labelledby="profile-tab">Group</div>
+                      </div>
 
 
-    <!-- Scripts -->
+
+                        <button class=" w-100  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-2 mt-3">Share Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./assests/bootstrap/bootstrap.js "></script>
+    <script src="./assests/js/notes.js "></script>
+    <script src="./assests/DataTables/datatables.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,185 @@
+a:active{
+    color:black
+}
+tr {
+
+    width: 100% ;
+}
+
+td,
+th {
+
+    border-left-width: 0px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td,
+td {
+    text-align: left;
+    flex-grow: 1;
+}
+
+tr {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.page-item:last-child .page-link,
+.page-item:first-child .page-link,
+.page-item:not(:first-child) .page-link {
+    font-size: 26px;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    align-items: center;
+    display: flex;
+
+}
+
+a[aria-current="page"] {
+    color: black !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    transform: translateY(8px);
+}
+
+.dt-search label {
+    display: none;
+}
+
+.btn.btn-secondary {
+    color: white !important;
+    background-color: #41b8b6 !important;
+    border-color: transparent !important;
+
+}
+
+#notes_table_wrapper {
+    padding: 10px 37px;
+}
+.btn.btn-secondary {
+
+    padding: 10px 20px;
+}
+.b
+.dt-search label:after {
+    position: absolute;
+    top: 50%;
+   
+    right: 1em;
+    display: inline-block;
+    content: "✓";
+    color: inherit;
+ 
+}
+
+div.dt-container div.dt-info {
+    padding-top: 0.85em;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.dt-paging-button.page-item {
+    display: none;
+}
+.dt-paging-button.page-item:first-child,
+.dt-paging-button.page-item:last-child,
+.dt-paging-button.page-item.active {
+    display: block;
+}
+
+.page-link.next{
+    color: black 
+}
+.dt-paging-button.page-item.disabled .page-link.previous,
+.dt-paging-button.page-item.disabled .page-link.next
+{
+    color: gray ;
+
+}
+.dt-paging-button.page-item:focus{
+    border: none;
+    outline: none;
+}
+.page-link.next, 
+.page-link.previous,
+.page-link.next:focus,
+.page-link.previous:focus,
+.dt-paging-button.page-item.active{
+    color: black;
+    border: none !important;
+    outline: none;
+    line-height: 20px;
+}
+.dt-paging-button.page-item.active{
+    
+    transform: translateY(-6px);
+
+}
+table.table.dataTable>tbody>tr {
+    background-color: transparent;
+    padding: d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+table.dataTable td {
+    box-sizing: border-box;
+    text-wrap: nowrap;
+    border-bottom: none;
+}
+table.table.dataTable>tbody>tr {
+   
+    border-bottom: 1px rgb(228, 220, 220) solid;
+}
+.f_1{
+    font-size: 16px !important;
+    font-weight: 500;
+    color: black;
+}
+.f_2{
+    font-size: 14px;
+    font-weight: 500;
+    color: #5F5F5F !important;
+}
+.dt-column-title{
+    color: black;
+    font-size: 16px;
+}
+.dt-paging.paging_simple_numbers{
+    margin: -12px !important;
+}
+.table_title{
+color: #F6F8FB;
+font-size: 14px;
+}
+.notes_title {
+    position: absolute;
+    transform: translate(10px , 12px);
+}
+
+
+@media screen and (max-width: 600px) {
+    .dt-container.dt-info {
+        padding-top: 0.85em;
+        font-size: 16px;
+        font-weight: 500;
+      
+    }
+}
+
+@media screen and (max-width: 952px) {
+    .notes_title {
+        position: relative;
+        margin: auto;
+        text-align: center;
+      
+    }
+}
