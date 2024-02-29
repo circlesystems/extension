@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             // Retrieve values from input fields
                             var newTitle = $('#newNoteTitle').val();
                             var newDescription = $('#newNoteDescription').val();
-                            
+
                             // Add new data to the array
                             data.push([newTitle, newDescription]);
-                            
+
                             // Redraw the DataTable with the updated data
                             $('#notes_table').DataTable().clear().rows.add(data).draw();
-                            
+
                             // Hide the "add" modal
                             $('#add').modal('hide');
                         });
@@ -91,6 +91,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log((pageInfo.page + 1) + " of " + +pageInfo.pages + 1)
                 var targetLink = $('a[aria-current="page"]');
                 targetLink.text((pageInfo.page + 1) + " of " + +pageInfo.pages + 1);
+                 // Attach event listener for edit button
+                // Event delegation to handle clicks on custom buttons
+                $(document).off('click', '.edit-button').on('click', '.edit-button', function () {
+                    var rowData = notes.row($(this).closest('tr')).data();
+                    var index = notes.row($(this).closest('tr')).index();
+                    editNote(rowData, index);
+                });
+
+                $(document).off('click', '.delete-button').on('click', '.delete-button', function () {
+                    var rowData = notes.row($(this).closest('tr')).data();
+                    var index = notes.row($(this).closest('tr')).index();
+                    deleteNote(rowData, index);
+                });
+
+                $(document).off('click', '.share-button').on('click', '.share-button', function () {
+                    var rowData = notes.row($(this).closest('tr')).data();
+                    var index = notes.row($(this).closest('tr')).index();
+                    shareNote(rowData, index);
+                });
             },
             language: {
                 "search": "Search records:",
@@ -108,10 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "drawCallback": function (settings) {
                 var api = this.api();
                 var pageInfo = api.page.info();
-            
-                console.log((+pageInfo.page + 1) + " of " +( +pageInfo.pages ))
+                console.log((+pageInfo.page + 1) + " of " + (+pageInfo.pages))
                 var targetLink = $('a[aria-current="page"]');
-                targetLink.text((+pageInfo.page + 1) + " of " + (+pageInfo.pages ));
+                targetLink.text((+pageInfo.page + 1) + " of " + (+pageInfo.pages));
+               
 
             },
             columns: [
@@ -139,25 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 { "className": "f_2", "targets": [1] }]
         });
 
-        // Event delegation to handle clicks on custom buttons
-        $(document).on('click', '.edit-button', function () {
-            var rowData = notes.row($(this).closest('tr')).data();
-            var index = notes.row($(this).closest('tr')).index();
-            editNote(rowData, index);
-        });
-
-        $(document).on('click', '.delete-button', function () {
-            var rowData = notes.row($(this).closest('tr')).data();
-            var index = notes.row($(this).closest('tr')).index();
-            deleteNote(rowData, index);
-        });
-
-        $(document).on('click', '.share-button', function () {
-            var rowData = notes.row($(this).closest('tr')).data();
-            var index = notes.row($(this).closest('tr')).index();
-            shareNote(rowData, index);
-        });
-
         notes.rows.add(data).draw();
         var tableRows = document.querySelectorAll('#notes_table tbody tr');
         tableRows.forEach(function (row) {
@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     }
+    
 
 });
 
@@ -285,6 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         people_table.parent().find('.toolbar').append(selectAllCheckboxPeople);
     }
+   
 })
 // Function to share note
 const shareNote = (rowData, index) => {
@@ -299,8 +301,8 @@ const showalert = () => {
 }
 
 const editNote = (rowData, index) => {
+    let count = 0;
     $('#edit').modal('show');
-
     var titleInput = $('#editNoteTitle');
     var editNoteDesc = $('#editNoteDescription');
     if (titleInput.length && editNoteDesc.length) {
@@ -309,17 +311,26 @@ const editNote = (rowData, index) => {
         $('#saveEditBtn').on('click', function () {
             var newTitle = titleInput.val();
             var newDescription = editNoteDesc.val();
-            data[index] = [newTitle, newDescription];
-            $('#notes_table').DataTable().clear().rows.add(data).draw();
+            const newItem = [newTitle, newDescription];
+
+            const updatedData = data.map((item, ind) => {
+                return ind === index ? newItem : item;
+            });
+            count++;
+            data = updatedData;
+            console.log(data, count)
+            $('#notes_table').DataTable().clear().rows.add(updatedData).draw();
             $('#edit').modal('hide');
         });
     }
+    
 }
 
 
 // Function to delete note
 const deleteNote = (rowData, index) => {
     $('#delete').modal('show');
+   
     $('#deleteConfirmBtn').on('click', function () {
         data.splice(index, 1);
         $('#notes_table').DataTable().clear().rows.add(data).draw();
