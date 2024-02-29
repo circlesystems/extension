@@ -29,7 +29,7 @@
                 Note your credentials  
     </div>
     <!-- Table starts -->
-    <div class="table-responsive pt-3">
+    <div class="table-responsive pt-md-3 pt-0">
        
   
     <table id="notes_table" class="table  tt-statis-table w-100 mt-3 text-center">
@@ -68,14 +68,14 @@
                 <div class="modal-body  mb-1">
                     <div class="mb-2">
                         <label for="title" class="form-label">Title:</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
+                        <input minlength="5" required id="newNoteTitle" type="text" class="form-control" id="title" placeholder="Title">
                     </div>
                     <div class="mb-2">
                         <label for="note" class="form-label">Note:</label>
-                        <textarea rows="6" class="form-control" id="note" placeholder="Note"></textarea>
+                        <textarea minlength="5"  required id="newNoteDescription" rows="6" class="form-control" id="note" placeholder="Note"></textarea>
                     </div>
                     <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                        <button style="width: 70%;" class="modal_btn flex-grow-1">Create</button>
+                        <button id="addConfirmBtn" style="width: 70%;" class="modal_btn flex-grow-1">Create</button>
                     </div>
                 </div>
             </div>
@@ -95,16 +95,16 @@
                     </button>
                 </div>
                 <div class="modal-body  mb-1">
-                    <div class="mb-2">
-                        <label for="title" class="form-label">Title:</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
+                    <div class="mb-4">
+                        <label for="title " class="form-label f_2">Title:</label>
+                        <input id="editNoteTitle" type="text" class="form-control" id="title" placeholder="Title">
                     </div>
                     <div class="mb-2">
-                        <label for="note" class="form-label">Note:</label>
-                        <textarea rows="6" class="form-control" id="note" placeholder="Note"></textarea>
+                        <label for="note" class="form-label f_2">Note:</label>
+                        <textarea  id="editNoteDescription" rows="6" class="form-control" id="note" placeholder="Note"></textarea>
                     </div>
-                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                        <button style="width: 70%;" class="modal_btn flex-grow-1">Confirm</button>
+                    <div class="text-center mb-2 mt-4 justify-content-around flex-nowrap">
+                        <button id="saveEditBtn" style="width: 70%;" class="modal_btn flex-grow-1">Confirm</button>
                     </div>
                 </div>
             </div>
@@ -126,8 +126,8 @@
                 <div class="modal-body  mb-1">
                     <p class="mt-1 mb-2 colorText text-center ">Are you sure you want to delete this note?</p>
                     <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                        <button class="modal_btn flex-grow-1">Yes, Delete</button>
-                        <button class="modal_btn flex-grow-1">Don't Delete</button>
+                        <button id="deleteConfirmBtn" class="modal_btn flex-grow-1">Yes, Delete</button>
+                        <button onclick="hideModal('#delete')"  class="modal_btn flex-grow-1">Don't Delete</button>
                     </div>
                 </div>
             </div>
@@ -148,36 +148,64 @@
                 </div>
                 
                 <div class="modal-body  mb-1 pt-0">
-                    <div>
+                    <div class=" px-3">
                         <img src="./assests/images/nb.png" />
-                        Test File Name
+                       <span class="fileName">Test File Name</span> 
                     </div>
-                    <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs px-3 mt-2" id="myTab" role="tablist">
                         <li class="nav-item flex-grow-1" role="presentation">
-                          <button class="nav-link active w-100" id="profile" data-bs-toggle="tab" data-bs-target="#people" type="button" role="tab" aria-controls="home" aria-selected="true">People</button>
+                          <button style="color: black;" class="nav-link active w-100" id="profile" data-bs-toggle="tab" data-bs-target="#people" type="button" role="tab" aria-controls="home" aria-selected="true">People</button>
                         </li>
                         <li class="nav-item flex-grow-1 " role="presentation">
-                          <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#group" type="button" role="tab" aria-controls="group" aria-selected="false">Group</button>
+                          <button style="color: black;"  class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#group" type="button" role="tab" aria-controls="group" aria-selected="false">Group</button>
                         </li>
                        
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="table-responsive pt-3">
+                            <div class="table-responsive ">
        
   
-                                <table id="actions_groups_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                <table id="people_table" class="table  tt-statis-table w-100 mt-3 text-center">
                                     
                                 </table>
                             </div>
 
                         </div>
-                        <div class="tab-pane fade" id="group" role="group" aria-labelledby="profile-tab">Group</div>
+                        <div class="tab-pane fade" id="group" role="group" aria-labelledby="profile-tab"> <div class="table-responsive ">
+       
+  
+                            <table id="actions_groups_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                
+                            </table>
+                        </div></div>
                       </div>
 
 
 
-                        <button class=" w-100  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-2 mt-3">Share Note</button>
+                        <button class=" w-100  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-2 mt-3" onclick="showalert()">Share Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Modal to Alert Note has been shared -->
+     <div class="modal fade" id="NoteShared" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>File Shared</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1  mb-3 fw-bold  justify-content-start flex-nowrap">
+                       <img  src="./assests/images/nb.png"/> 
+                       <span id="fileName" class="color_green fileName">Testfilename </span>
+                       <span>shared to </span>
+                       <span id="userEmail" class="color_green">@emailusername </span>
                 </div>
             </div>
         </div>
