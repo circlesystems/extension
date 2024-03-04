@@ -117,7 +117,7 @@ body {
     text-align: center;
 }
 .t-10{
-    transform: translateX(-10px)
+    transform: translateY(-10px)
 }
 .modal_btn {
     font-weight: 500;
