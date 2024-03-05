@@ -2,8 +2,8 @@ body{
     overflow: hidden;
 }
 table.dataTable thead>tr>th.dt-orderable-asc span.dt-column-order, table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order, table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order, table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order, table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order, table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order, table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order, table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order {
-    position: absolute;
-    right: 5px;
+    /* position: absolute;
+    right: 5px; */
 }
 table.dataTable thead th
 {
@@ -11,12 +11,20 @@ table.dataTable thead th
     text-wrap: nowrap;
     padding:20px 30px ;
 }
+thead{
+    width: 100%;
+    display: flex
+}
+tbody{
+    width: 100%;
+    display: flow-root;
+}
 table.dataTable tr td{
     text-align: center;
 
 }
 .btn.btn-secondary {
-
+    text-wrap: nowrap;
     padding: 10px 20px;
 }
 .b
@@ -301,9 +309,45 @@ table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.
     position: absolute;
     transform: translateY(27px);
 }
+#cg_table_wrapper .dt-search{
+    width: 100%;
+}
+#cg_table_wrapper .dt-search,
+#cg_table_wrapper #dt-search-7{
+    width: 100%;
+}
+#people_table_wrapper div.dt-buttons{
+    width: max-content;
+    margin-bottom: 0;
+}
+#people_table_wrapper .dt-info{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+}
+#people_table{
+    padding-bottom: 40px;
+    margin-top: 0px !important;
+    background-color: #f4f4f4;
+}
+#people_table thead{
+    background-color: white;
+    height: 52px;
+}
+
+#people_table_wrapper .dt-paging{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
 @media (max-width:600px) {
     table.table.dataTable {
         display: block;
+    }
+    .btn.btn-secondary {
+        border-bottom: 5px !important;
+        padding: 8px 10px !important;
     }
     
 }

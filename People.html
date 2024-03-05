@@ -16,7 +16,7 @@
         <!-- section navbar start -->
         <section class=" ">
             <div
-                class="d-flex justify-content-between align-items-center flex-wrap bg-white shadowClass paddingMob py-3  px-5  ">
+                class="d-flex   justify-content-between align-items-center flex-wrap bg-white shadowClass paddingMob py-3  px-5  ">
                 <div>
                     <a href><img src="./assests/images/Frame 6.png"></a>
                 </div>
@@ -41,7 +41,7 @@
         </div>
         <!-- Table ends -->
 
-        <!-- Modal to create Note -->
+        <!-- Modal to Invite user -->
         <div class="modal fade" id="add" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -66,22 +66,11 @@
                                 class="form-control" id="title"
                                 placeholder="Enter Email">
                         </div>
-                        <!-- <div class="pt-4">
-                        <p class="fs-class">Instructions</p>
-                        <div>
-                            <b>Please share this URL with the person you are inviting.</b>
-                            <p>They should paste it into their web browser. A QR code will then appear, which they should scan using the Circle App.</p> 
-                        </div>
-                        <div class=" d-flex w-100 gap-0 b_light  rounded-1 overflow-hidden">
-                            <input disabled class=" ps-4 border-0 flex-grow-1" value="/login url"/>
-                            <span class="bg_main p-3"><img src="./assests/images/copy_all.png" alt="copy img"/></span>
-                        </div>
-                    </div> -->
                         <div
                             id="sendInviteContainer"></div>
                             <div
                                 class="text-center mb-2 mt-5 justify-content-around flex-nowrap">
-                                <button id="sendInvite" style="width: 50%;"
+                                <button id="sendInvite" style="width: 70%;"
                                     class="modal_btn flex-grow-1">Send
                                     Invite</button>
 
@@ -151,7 +140,7 @@
                             <img src="./assests/images/close.svg" />
                         </button>
                     </div>
-                    <div class="modal-body  mb-1">
+                    <div class="modal-body  mb-1 p-0">
                         <p class="mt-1 mb-2 colorText text-center ">Are you sure
                             you want to delete this note?</p>
                         <div
@@ -185,7 +174,7 @@
                         </button>
                     </div>
 
-                    <div class="modal-body  mb-1 pt-0">
+                    <div class="modal-body  mb-1 p-0">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="people"
                                 role="tabpanel" aria-labelledby="home-tab">
@@ -229,8 +218,13 @@
                             <img src="./assests/images/close.svg" />
                         </button>
                     </div>
-
-                    <div class="modal-body  mb-1 pt-0">
+                    <div class="mb-2 px-4">
+                        <label for="title" class="form-label">Group Name:</label>
+                        <input minlength="5" required id="email" type="text"
+                            class="form-control" id="title"
+                            placeholder="Enter Email">
+                    </div>
+                    <div class="modal-body  mb-1 p-0">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="people"
                                 role="tabpanel" aria-labelledby="home-tab">
@@ -255,7 +249,7 @@
                         </div>
 
                         <button
-                            class=" w-100  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-2 mt-3">Create Group</button>
+                            class="   w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Create Group</button>
                     </div>
                 </div>
             </div>
