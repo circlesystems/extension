@@ -5,10 +5,15 @@ table.dataTable thead>tr>th.dt-orderable-asc span.dt-column-order, table.dataTab
     position: absolute;
     right: 5px;
 }
-table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+table.dataTable thead th
+{
     text-align: center;
     text-wrap: nowrap;
     padding:20px 30px ;
+}
+table.dataTable tr td{
+    text-align: center;
+
 }
 .btn.btn-secondary {
 
@@ -114,6 +119,32 @@ input[type="checkbox" i] {
     position: absolute;
     transform: translate(10px, 10px);
 }
+}
+.btn.btn-secondary {
+    color: white !important;
+    background-color: #41b8b6 !important;
+    border-color: transparent !important;
+    border-radius: 10px  !important;
+    padding:12px  40px !important;
+
+}
+#notes_table_wrapper{
+    padding: 0px 10px;
+}
+.b_light{
+    border: 1px solid #D9D9D9;
+    background-color: #f3f3f3;
+    color: #9E9E9EEE;
+
+}
+div.dt-buttons {
+    position: initial;
+    gap: 10px;
+}
+
+.btn.btn-secondary {
+
+    padding: 10px 20px;
 }
 @media screen and (max-width: 952px) {
     .notes_title {
@@ -254,7 +285,9 @@ table.table.dataTable {
     overflow-x: auto !important;
     /* display: block; */
 }
-
+#notes_table tr{
+    width: 100vw !important;
+}
 table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.dt-orderable-desc:hover, table.dataTable thead>tr>td.dt-orderable-asc:hover, table.dataTable thead>tr>td.dt-orderable-desc:hover {
     outline:none;
 }

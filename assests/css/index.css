@@ -23,11 +23,25 @@ padding: 15px 0px !important;
     }
 }
 
-
+.form-check-input[type=checkbox] {
+    border-radius: 0.25em;
+    width: 25px !important;
+    height: 25px !important;
+}
 *{
     padding: 0px;
     margin: 0px; 
     box-sizing: border-box;
+}
+.homelink{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    text-decoration: none !important;
+}
+a{
+    text-decoration: none  !important;
 }
 .spaceTop {
     padding: 34px 0px !important;
@@ -52,6 +66,9 @@ body {
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
+}
+.cursor-pointer {
+    cursor: pointer;
 }
 
 /* css page desktop-9 start*/
@@ -136,4 +153,6 @@ body {
     background-color: white;
     color: #41B8B6 !important;
   }
- 
+ .bg_main{
+    background-color: #41b8b6;
+ }

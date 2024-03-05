@@ -71,12 +71,13 @@ a[aria-current="page"] {
 
 }
 
-#notes_table_wrapper {
-    padding: 10px 37px;
-}
+
 .btn.btn-secondary {
 
     padding: 10px 20px;
+}
+#notes_table_wrapper {
+    padding: 10px 37px;
 }
 .b
 .dt-search label:after {
