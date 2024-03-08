@@ -92,6 +92,10 @@ input[type="checkbox" i] {
     padding: initial;
     border: initial;
 }
+.notes_title {
+    position: absolute;
+    transform: translate(10px, 25px);
+}
 @media screen and (max-width: 600px) {
     .dt-container.dt-info {
         padding-top: 0.85em;
@@ -175,17 +179,15 @@ input[type="checkbox"]:checked::after {
 .search_input {
     padding: 10px 10px 10px 40px !important;
 }
-.color_green{
-                color: #41b8b6 !important;
-}
 
-#people_table tbody,
+
+/* #people_table tbody,
 #actions_groups_table tbody {
         height: 220px;
         overflow: auto;
         display: flex;
         flex-direction: column;
-}
+} */
 #people_table tbody tr,
 #actions_groups_table tbody tr {
     padding:20px ;
@@ -266,7 +268,7 @@ table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.
 }
 .Cus_tool{
     position: absolute;
-    transform: translateY(27px);
+    transform: translateY(-14px);
 }
 @media (max-width:600px) {
     table.table.dataTable {
@@ -275,9 +277,19 @@ table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.
     
 }
 @media (max-width:992px) {
+    .dt-search input{
+        width: 95% !important;
+    }
+    div.dt-container div.dt-search {
+        width:  95%;
+        margin: auto;
+    }
+    .search_icon {
+        padding-left: 24px  !important;
+    }
     .Cus_tool{
         position: relative;
-        transform: translateY(27px);
+        transform: translateY(14px);
         width: fit-content;
         margin: auto;
     }

@@ -1,291 +1,427 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Notes</title>
-        <link rel="stylesheet" href="./assests/bootstrap/bootstrap..css">
-        <link rel="stylesheet" href="./assests/css/index.css">
-        <link href="./assests/DataTables/datatables.min.css" rel="stylesheet">
-        <link href="./assests/css/notes.css" rel="stylesheet">
 
-        <link href="./assests/css/people.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notes</title>
+    <link rel="stylesheet" href="./assests/bootstrap/bootstrap..css">
+    <link rel="stylesheet" href="./assests/css/index.css">
+    <link href="./assests/DataTables/datatables.min.css" rel="stylesheet">
+    <link href="./assests/css/notes.css" rel="stylesheet">
 
-    </head>
-    <body>
-        <!-- section navbar start -->
-        <section class=" ">
-            <div
-                class="d-flex   justify-content-between align-items-center flex-wrap bg-white shadowClass paddingMob py-3  px-5  ">
-                <div>
-                    <a href><img src="./assests/images/Frame 6.png"></a>
-                </div>
-                <div>
-                    <a href><img src="./assests/images/Frame 707.png"></a>
-                    <a href><img src="./assests/images/Frame 710.png"></a>
-                </div>
-            </div>
-        </section>
-        <!-- section navbar end -->
+    <link href="./assests/css/people.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- section navbar start -->
+    <section class=" ">
         <div
-            class="Padding-LR ps-4 t-10 fs-14 flex-grow-1 notes_title  bg-colorgrey my-3">
-            Note your credentials
-        </div>
-        <!-- Table starts -->
-        <div class="table-responsive overflow-hidden pt-md-3 pt-0">
-
-            <table id="notes_table"
-                class="table  tt-statis-table w-100 mt-3 text-center">
-
-            </table>
-        </div>
-        <!-- Table ends -->
-
-        <!-- Modal to Invite user -->
-        <div class="modal fade" id="add" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <img src="./assests/images/add.svg" />
-                            <h5>Invite User</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
-                    </div>
-                    <div class="modal-body  mb-1">
-                        <div class="mb-2">
-                            <label for="title" class="form-label">Email:</label>
-                            <input minlength="5" required id="email" type="text"
-                                class="form-control" id="title"
-                                placeholder="Enter Email">
-                        </div>
-                        <div
-                            id="sendInviteContainer"></div>
-                            <div
-                                class="text-center mb-2 mt-5 justify-content-around flex-nowrap">
-                                <button id="sendInvite" style="width: 70%;"
-                                    class="modal_btn flex-grow-1">Send
-                                    Invite</button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
+            class="d-flex   justify-content-between align-items-center flex-wrap bg-white shadowClass paddingMob py-3  px-5  ">
+            <div>
+                <a href='/'><img src="./assests/images/Frame 6.png"></a>
+            </div>
+            <div>
+                <a href><img src="./assests/images/Frame 707.png"></a>
+                <a href><img src="./assests/images/Frame 710.png"></a>
             </div>
         </div>
-        <!-- Modal to edit Note -->
-        <div class="modal fade" id="edit" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <h5>Edit Note</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
+    </section>
+    <!-- section navbar end -->
+    <div class="Padding-LR ps-4 t-10 fs-14 flex-grow-1 notes_title  bg-colorgrey my-3">
+        Note your credentials
+    </div>
+    <!-- Table starts -->
+    <div class="table-responsive overflow-hidden pt-md-3 pt-0">
+
+        <table id="notes_table" class="table  tt-statis-table w-100 mt-3 text-center">
+
+        </table>
+    </div>
+    <!-- Table ends -->
+
+    <!-- Modal to Invite user -->
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <img src="./assests/images/add.svg" />
+                        <h5>Invite User</h5>
                     </div>
-                    <div class="modal-body  mb-1">
-                        <div class="mb-4">
-                            <label for="title "
-                                class="form-label f_2">Title:</label>
-                            <input id="editNoteTitle" type="text"
-                                class="form-control" id="title"
-                                placeholder="Title">
-                        </div>
-                        <div class="mb-2">
-                            <label for="note"
-                                class="form-label f_2">Note:</label>
-                            <textarea id="editNoteDescription" rows="6"
-                                class="form-control" id="note"
-                                placeholder="Note"></textarea>
-                        </div>
-                        <div
-                            class="text-center mb-2 mt-4 justify-content-around flex-nowrap">
-                            <button id="saveEditBtn" style="width: 50%;"
-                                class="modal_btn flex-grow-1">Confirm</button>
-                        </div>
-                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
                 </div>
-            </div>
-        </div>
-        <!-- Modal to Delete Note -->
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <h5>Delete Note</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
-                    </div>
-                    <div class="modal-body  mb-1 p-0">
-                        <p class="mt-1 mb-2 colorText text-center ">Are you sure
-                            you want to delete this note?</p>
-                        <div
-                            class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                            <button id="deleteConfirmBtn"
-                                class="modal_btn flex-grow-1">Yes,
-                                Delete</button>
-                            <button onclick="hideModal('#delete')"
-                                class="modal_btn flex-grow-1">Don't
-                                Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal to view groups -->
-        <div class="modal fade" id="share" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <h5>Groups</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
-                    </div>
-
-                    <div class="modal-body  mb-1 p-0">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="people"
-                                role="tabpanel" aria-labelledby="home-tab">
-                                <div class="table-responsive ">
-
-                                    <table id="people_table"
-                                        class="table  tt-statis-table w-100 mt-3 text-center">
-
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane fade" id="group" role="group"
-                                aria-labelledby="profile-tab"> <div
-                                    class="table-responsive ">
-
-                                    <table id="actions_groups_table"
-                                        class="table  tt-statis-table w-100 mt-3 text-center">
-
-                                    </table>
-                                </div></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal to Create Group -->
-        <div class="modal fade" id="create_group" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <img src="./assests/images/add.svg"/>
-                            <h5>Group</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
-                    </div>
-                    <div class="mb-2 px-4">
-                        <label for="title" class="form-label">Group Name:</label>
-                        <input minlength="5" required id="email" type="text"
-                            class="form-control" id="title"
+                <div class="modal-body  mb-1">
+                    <div class="mb-2">
+                        <label for="title" class="form-label">Email:</label>
+                        <input minlength="5" required id="email" type="text" class="form-control" id="title"
                             placeholder="Enter Email">
                     </div>
-                    <div class="modal-body  mb-1 p-0">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="people"
-                                role="tabpanel" aria-labelledby="home-tab">
-                                <div class="table-responsive ">
+                    <div id="sendInviteContainer"></div>
+                   
+                    <div id="snd-btn" class="text-center mb-2 mt-5 justify-content-around flex-nowrap">
+                        <button id="sendInvite" style="width: 70%;" class="modal_btn flex-grow-1">Send
+                            Invite</button>
 
-                                    <table id="cg_table"
-                                        class="table  tt-statis-table w-100 mt-3 text-center">
+                    </div>
 
-                                    </table>
-                                </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Modal to view groups -->
+    <div class="modal fade"  data-backdrop="false" id="share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div id="cus_overlay" class="modal-overlay"></div> 
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Groups</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive ">
+
+                                <table id="people_table" class="table  tt-statis-table w-100 mt-3 text-center">
+
+                                </table>
                             </div>
-                            <div class="tab-pane fade" id="group" role="group"
-                                aria-labelledby="profile-tab"> <div
-                                    class="table-responsive ">
 
-                                    <table id="actions_groups_table"
-                                        class="table  tt-statis-table w-100 mt-3 text-center">
-
-                                    </table>
-                                </div></div>
                         </div>
+                        <div class="tab-pane fade" id="group" role="group" aria-labelledby="profile-tab">
+                            <div class="table-responsive ">
 
-                        <button
-                            class="   w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Create Group</button>
+                                <table id="actions_groups_table" class="table  tt-statis-table w-100 mt-3 text-center">
+
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal to Alert Note has been shared -->
-        <div class="modal fade" id="NoteShared" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header" style="border-bottom: none;">
-                        <div
-                            class="d-flex flex-nowrap gap-2  align-items-center">
-                            <h5>File Shared</h5>
-                        </div>
-                        <button type="button"
-                            class="close border-0  bg-transparent"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <img src="./assests/images/close.svg" />
-                        </button>
+    </div>
+    <!-- Modal to Create Group -->
+    <div class="modal fade" id="create_group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <img src="./assests/images/add.svg" />
+                        <h5>Group</h5>
                     </div>
-                    <div
-                        class="modal-body  mb-1  mb-3 fw-bold  justify-content-start flex-nowrap">
-                        <img src="./assests/images/nb.png" />
-                        <span id="fileName"
-                            class="color_green fileName">Testfilename </span>
-                        <span>shared to </span>
-                        <span id="userEmail" class="color_green">@emailusername
-                        </span>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="mb-2 px-4">
+                    <label for="title" class="form-label">Group Name:</label>
+                    <input minlength="5" required id="email" type="text" class="form-control" id="title"
+                        placeholder="Enter Email">
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive ">
+
+                                <table id="cg_table" class="table  tt-statis-table w-100 mt-3 text-center">
+
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="group" role="group" aria-labelledby="profile-tab">
+                            <div class="table-responsive ">
+
+                                <table id="actions_groups_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="create_group()"
+                        class="   w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Create
+                        Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to edit Group -->
+    <div class="modal fade"  id="edit_group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Edit Group</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="mb-2 px-4">
+                    <label for="title" class="form-label">Group Name:</label>
+                    <input minlength="5" required id="email" type="text" class="form-control" id="title"
+                        value="test name" placeholder="Enter Email">
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive ">
+
+                                <table id="eg_table" class="table  tt-statis-table w-100 text-center">
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button onclick="se_row()"
+                        class="w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Save
+                        Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to manage permissions -->
+    <div class="modal fade" id="mp_group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header pb-1" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap flex-column gap-1 fs-22 fw-500 align-items-start">
+                        <div>Manage permissions for</div>
+                        <div class=" color_green">username@gmail.com</div>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body d-flex gap-3 flex-column   mb-1 px-4">
+                    <div class="d-flex flex-column gap-2  align-items-start">
+                        <p class="fs-17 fw-700">Group Settings</p>
+                        <div class=" d-flex flex-column gap-3  align-items-start ps-2">
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="d-flex flex-column gap-2  align-items-start">
+                        <p class="fs-17 fw-700">Password Settings</p>
+                        <div class=" d-flex flex-column gap-3  align-items-start ps-2">
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="select-checkbox">
+                                <span>See the group</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="gray_color">
+                        All settings and permissions are hierarchical:Granting a higher-level permission will include
+                        all permissions below it.
+                    </p>
+                    <button onclick="save_per()"
+                        class="w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 ">Save
+                        Permission</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to Delete group -->
+    <div class="modal fade "  data-backdrop="false" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Confirm Delete</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1">
+                    <p class="mt-1 mb-2 colorText text-center ">Are you sure you want to delete this group?</p>
+                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
+                        <button id="deleteConfirmBtn" onclick="confirmDelete()" class="modal_btn flex-grow-1">Yes,
+                            Delete</button>
+                        <button onclick="cancelDelete()" class="modal_btn flex-grow-1">Don't Delete</button>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="./assests/bootstrap/bootstrap.js "></script>
-        <script src="./assests/js/people.js "></script>
-        <script src="./assests/DataTables/datatables.min.js"></script>
-    </body>
+    </div>
+    <!-- Modal to Show  Group pswds list-->
+    <div class="modal fade " id="group_pswds" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Groups: <span>Group Name</span></h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive pt-3 ">
+
+                                <table id="group_pswds_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button onclick="addPswdtoGroup()"
+                        class=" w-90 mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Add Passwords</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal to add pswd to groups -->
+    <div class="modal fade " id="add_psw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Adding Passwords</h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive pt-3 ">
+
+                                <table id="add_psw_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button onclick="confirmAdd()"
+                        class=" w-90 mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3"> <i>Add to: <span>Test Group</span></i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Modal to Show  notes list-->
+        <div class="modal fade " id="pn_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Notes: <span>Test name</span></h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive pt-3 ">
+
+                                <table id="pn_list_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button onclick="addnewnote()"
+                        class=" w-90 mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Add Notes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Modal to add new note-->
+        <div class="modal fade " id="nn_list" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <div class="d-flex flex-nowrap gap-2  align-items-center">
+                        <h5>Notes: <span>Test name</span></h5>
+                    </div>
+                    <button type="button" class="close border-0  bg-transparent" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <img src="./assests/images/close.svg" />
+                    </button>
+                </div>
+                <div class="modal-body  mb-1 p-0">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="people" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="table-responsive pt-3 ">
+
+                                <table  id="newn_table" class="table  tt-statis-table w-100 mt-3 text-center">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button onclick="confirmAddNote()"
+                        class=" w-90 mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3"> <i>Add to: Test Group</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assests/bootstrap/bootstrap.js "></script>
+    <script src="./assests/js/peoplePswd.js"> </script>
+    <script src="./assests/js/people.js "></script>
+    <script src="./assests/js/groups.js "></script>
+    <script src="./assests/DataTables/datatables.min.js"></script>
+</body>
 
 </html>

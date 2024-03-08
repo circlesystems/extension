@@ -68,12 +68,8 @@ a[aria-current="page"] {
     color: white !important;
     background-color: #41b8b6 !important;
     border-color: transparent !important;
-
 }
-
-
 .btn.btn-secondary {
-
     padding: 10px 20px;
 }
 #notes_table_wrapper {
@@ -294,16 +290,7 @@ input[type="checkbox"]:checked::after {
     padding:20px ;
        height: 64px !important;
 }
-#notes_table tbody tr:nth-child(odd),
-#people_table tbody tr:nth-child(odd),
-#actions_groups_table tbody tr:nth-child(odd) {
-    background-color: #f6f8fb !important;
-}
-#notes_table tbody tr:nth-child(even),
-#people_table tbody tr:nth-child(even),
-#actions_groups_table tbody tr:nth-child(even) {
-    background-color: #fff;
-}
+
 /* Decrease the width of the scrollbar */
 #people_table tbody::-webkit-scrollbar,
 #actions_groups_table tbody::-webkit-scrollbar {

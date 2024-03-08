@@ -39,6 +39,7 @@ var data = [
   ["abc@gmail.com"],
   ["abc@gmail.com"],
 ];
+// Main table for People Screen
 document.addEventListener("DOMContentLoaded", function () {
   var notes_table = document.getElementById("notes_table");
   if (notes_table) {
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       paging: true,
       lengthChange: true,
       pagingType: "simple_numbers",
-      dom: '<"toolbar d-flex justify-content-lg-end justify-content-center  gap-3  flex-wrap align-items-center "ipfB>',
+      dom: '<"toolbar d-flex justify-content-lg-end justify-content-center  gap-3 px-3 flex-wrap align-items-center "ipfB>',
       buttons: [
         {
           text: `Group`,
@@ -95,29 +96,29 @@ document.addEventListener("DOMContentLoaded", function () {
         targetLink.text(pageInfo.page + 1 + " of " + +pageInfo.pages + 1);
         // Attach event listener for edit button
         // Event delegation to handle clicks on custom buttons
-        $(document)
-          .off("click", ".edit-button")
-          .on("click", ".edit-button", function () {
-            var rowData = notes.row($(this).closest("tr")).data();
-            var index = notes.row($(this).closest("tr")).index();
-            editNote(rowData, index);
-          });
+        // $(document)
+        //   .off("click", ".edit-button")
+        //   .on("click", ".edit-button", function () {
+        //     var rowData = notes.row($(this).closest("tr")).data();
+        //     var index = notes.row($(this).closest("tr")).index();
+        //     editGroup(rowData, index);
+        //   });
 
-        $(document)
-          .off("click", ".delete-button")
-          .on("click", ".delete-button", function () {
-            var rowData = notes.row($(this).closest("tr")).data();
-            var index = notes.row($(this).closest("tr")).index();
-            deleteNote(rowData, index);
-          });
+        // $(document)
+        //   .off("click", ".delete-button")
+        //   .on("click", ".delete-button", function () {
+        //     var rowData = notes.row($(this).closest("tr")).data();
+        //     var index = notes.row($(this).closest("tr")).index();
+        //     deleteNote(rowData, index);
+        //   });
 
-        $(document)
-          .off("click", ".share-button")
-          .on("click", ".share-button", function () {
-            var rowData = notes.row($(this).closest("tr")).data();
-            var index = notes.row($(this).closest("tr")).index();
-            shareNote(rowData, index);
-          });
+        // $(document)
+        //   .off("click", ".share-button")
+        //   .on("click", ".share-button", function () {
+        //     var rowData = notes.row($(this).closest("tr")).data();
+        //     var index = notes.row($(this).closest("tr")).index();
+        //     shareNote(rowData, index);
+        //   });
       },
       language: {
         search: "Search records:",
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         targetLink.text(+pageInfo.page + 1 + " of " + +pageInfo.pages);
       },
       columns: [
-        { title: "Title" },
+        { title: "Email" },
         {
           title: "Actions",
           orderable: false,
@@ -168,63 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Group Data table for share popup
-document.addEventListener("DOMContentLoaded", function () {
-  var actions_groups_table = $("#actions_groups_table");
-  if (actions_groups_table.length) {
-    // Initialize DataTable for Actions and Groups
-    var actions_groups = actions_groups_table.DataTable({
-      // paging: false,
-      lengthChange: false,
-      dom: '<"toolbar d-flex bg_lightgray py-3 px-4 justify-content-between flex-row-reverse align-items-center"fb>',
-      info: false,
-      initComplete: function () {
-        $(".dt-paging-button").not("active").hide();
-        const s = $("#dt-search-3");
-        if (s.length) {
-          $(".dt-search")
-            .append(
-              `
-                            <span class="input-group-text position-absolute search_icon ps-3" id="basic-addon1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-search" viewBox="0 0 16 16">
-                                    <path
-                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
-                                    </path>
-                                </svg>
-                            </span>
-                        `
-            )
-            .addClass(
-              "dt-search position-relative justify-content-between  align-content-center  rounded p-0"
-            );
-          $("#dt-search-3")
-            .addClass("form-control rounded search_input")
-            .attr("placeholder", "Search");
-          $("#notes_table_wrapper").addClass("table");
-        }
-      },
-      buttons: [
-        {
-          text: "Create Group",
-        },
-      ],
-      columns: [
-        {
-          title: "Actions",
-          orderable: false,
-          searchable: false,
-          className: "dt-center",
-        },
-        { title: "Group" },
-      ],
-    });
-
-    actions_groups.rows.add(groupsData).draw();
-  }
-});
-
-// People Data table for groups list popup
+// Data table for groups list popup
 document.addEventListener("DOMContentLoaded", function () {
   var people_table = $("#people_table");
   if (people_table.length) {
@@ -243,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </svg>
                     Group`,
           action: function (e, dt, node, config) {
-            // $('#share').modal('hide');
+            $('#share').modal('hide');
             $("#create_group").modal("show");
           },
         },
@@ -307,16 +252,16 @@ document.addEventListener("DOMContentLoaded", function () {
           searchable: false,
           className: "dt-center",
           defaultContent: `  
-                    <button type="button" class="edit-button close border-0 pe-0 pe-lg-2 bg-transparent">
+                    <button type="button" class="edit-group-button close border-0 pe-0 pe-lg-2 bg-transparent">
                         <img src="./assests/images/edit.png" />
                     </button>
-                    <button type="button" class="delete-button close border-0 pe-0 pe-lg-2 bg-transparent">
+                    <button type="button" class=" delete-group-btn close border-0 pe-0 pe-lg-2 bg-transparent">
                         <img src="./assests/images/delete.png" />
                     </button>
-                    <button type="button" class="share-button close border-0 pe-0 pe-lg-2 bg-transparent">
+                    <button type="button" class="add-pswd-btn close border-0 pe-0 pe-lg-2 bg-transparent">
                     <img src="./assests/images/permissions.png" />
                 </button>
-                <button type="button" class="share-button close border-0 pe-0 pe-lg-2 bg-transparent">
+                <button type="button" class="show-notes-button close border-0 pe-0 pe-lg-2 bg-transparent">
                 <img src="./assests/images/Icons-edit.png" />
             </button>`
         }, 
@@ -324,83 +269,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     people.rows.add(groups_list).draw();
   }
-});
-// Data table for creating group
-document.addEventListener("DOMContentLoaded", function () {
-  var cg_table = $("#cg_table");
-  if (cg_table.length) {
-    var cg = cg_table.DataTable({
-      lengthChange: true,
-      orderable: false,
-      searchable: false,
-      pagingType: "simple_numbers",
-      dom: '<"toolbar d-flex bg_lightgray py-3 px-4 justify-content-between  align-items-center"f>',
-      info: false,
-      initComplete: function () {
-        $(".dt-paging-button").not("active").hide();
-        const s = $("#dt-search-7");
-        if (s.length) {
-          $(".dt-search")
-            .append(
-              `
-                 <span class="input-group-text position-absolute search_icon ps-3" id="basic-addon1">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         class="bi bi-search" viewBox="0 0 16 16">
-                         <path
-                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
-                         </path>
-                     </svg>
-                 </span>
-             `
-            )
-            .addClass(
-              "dt-search position-relative justify-content-between  align-content-center  rounded p-0"
-            );
-          $("#dt-search-7")
-            .addClass("form-control rounded search_input")
-            .attr("placeholder", "Search");
-          $("#notes_table_wrapper").addClass("table");
-        }
-      },
-      columns: [
-        {
-          title: "Select",
-          data: null,
-          render: function (data, type, row) {
-            return '<input type="checkbox" class="select-checkbox">';
-          },
-          orderable: false,
-          searchable: false,
-          className: "dt-center",
-        },
-        {
-          title: "Name",
-          className: "dt-center",
-        },
-      ],
+    people_table.on('click', '.edit-group-button', function() {
+      var rowData = people.row($(this).parents('tr')).data();
+      editGroup(rowData, people.row($(this).parents('tr')).index());
     });
-
-    // Add dummy data
-    cg.rows
-      .add([
-        [null, "John"],
-        [null, "Doe"],
-        [null, "Jane"],
-        // Add more rows as needed
-      ])
-      .draw();
-
-    // Add event listener to checkboxes for selection
-    cg_table.on("change", ".select-checkbox", function () {
-      var row = $(this).closest("tr");
-      if (this.checked) {
-        row.addClass("selected");
-      } else {
-        row.removeClass("selected");
-      }
+    people_table.on('click', '.delete-group-btn', function() {
+      var rowData = people.row($(this).parents('tr')).data();
+      deleteGroup(rowData, people.row($(this).parents('tr')).index());
     });
-  }
+    people_table.on('click', '.add-pswd-btn', function() {
+      var rowData = people.row($(this).parents('tr')).data();
+      showpswdList(rowData, people.row($(this).parents('tr')).index());
+    });
+    people_table.on('click', '.show-notes-button', function() {
+      var rowData = people.row($(this).parents('tr')).data();
+      showNotesModal(rowData, people.row($(this).parents('tr')).index());
+    });
+    people.rows.add(groups_list).draw();
+  
 });
+
 
 // Function to share note
 const shareNote = (rowData, index) => {
@@ -431,15 +319,10 @@ const hideModal = (id) => {
   $(id).modal("hide");
 };
 document.addEventListener("DOMContentLoaded", function () {
-  // Get the "Send Invite" button element
   var sendInviteBtn = document.getElementById("sendInvite");
-
-  // Add a click event listener to the button
   sendInviteBtn.addEventListener("click", function () {
-    // Get the parent container of the button
     var container = document.getElementById("sendInviteContainer");
-
-    // Replace the content of the parent container with the desired content
+    $('#snd-btn').css("display", 'none');
     container.innerHTML = `
             <div class="pt-4">
                 <p class="fs-class">Instructions</p>

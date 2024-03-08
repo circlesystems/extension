@@ -48,15 +48,10 @@ function copyData(data) {
   textarea.value = data;
   // Append the textarea to the document body
   document.body.appendChild(textarea);
-  // Select the text within the textarea
   textarea.select();
-  // Copy the selected text to the clipboard
   document.execCommand("copy");
-  // Remove the textarea from the document body
   document.body.removeChild(textarea);
-
-  // Optionally, you can provide some visual feedback to the user
-  // alert("Data copied to clipboard: " + data);
+  alert("Password Copied!")
 }
 
 //* Function to share note
@@ -91,17 +86,9 @@ var tableData = [
     password: "ajklfkjl",
     action: "edit",
   },
-  // Add more rows as needed
 ];
 
-// Add data to the People table
 var people_data = [
-  ["<input type='checkbox'>", "abc@gmail.com"],
-  ["<input type='checkbox'>", "abc@gmail.com"],
-  ["<input type='checkbox'>", "abc@gmail.com"],
-  ["<input type='checkbox'>", "abc@gmail.com"],
-  ["<input type='checkbox'>", "abc@gmail.com"],
-  ["<input type='checkbox'>", "abc@gmail.com"],
   ["<input type='checkbox'>", "abc@gmail.com"],
   ["<input type='checkbox'>", "abc@gmail.com"],
   ["<input type='checkbox'>", "abc@gmail.com"],
@@ -111,31 +98,24 @@ var groupsData = [
   ["<input type='checkbox'>", "Group001"],
   ["<input type='checkbox'>", "Group001"],
   ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
-  ["<input type='checkbox'>", "Group001"],
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
+  createPswds()
+});
+function createPswds() {
   var password_table = document.getElementById("password_table");
   if (password_table) {
     var password = new DataTable(password_table, {
-      // responsive: false,
-      //   paging: true,
       pagingType: "simple_numbers",
       pageLength: 4,
-      // responsive: true,
       searching: true,
       lengthChange: true,
       oLanguage: {
         Search: "",
       },
       pagingType: "simple_numbers",
-      dom: '<"toolbar d-flex justify-content-lg-end justify-content-center flex-wrap align-items-center " ipfB> ',
+      dom: '<"toolbar d-flex px-3  px-md-4 justify-content-center justify-content-lg-end justify-content-center  gap-3  flex-wrap align-items-center" ipfB> ',
       language: {
         searchPlaceholder: "Search",
         info: "Showing _TOTAL_ entries",
@@ -152,18 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       buttons: [
         {
-          text: `
-           <button class="btn import-export-button">import</button>
-          `,
+          text: `Import`,
+          className: 'btn btn-outline-primary', // Use className instead of class
           action: function (e, dt, node, config) {
             // Trigger the modal opening
             $("#importModal").modal("show");
           },
         },
         {
-          text: ` <button class="btn import-export-button">Export</button>
-         
-                            `,
+          text: `Export`,
+          className: 'btn btn-outline-primary', // Use className instead of class
           action: function (e, dt, node, config) {
             // Trigger the modal opening
             $("#exportModal").modal("show");
@@ -175,6 +153,13 @@ document.addEventListener("DOMContentLoaded", function () {
             <path d="M13.75 8.75H16.25V11.25H13.75V8.75ZM13.75 13.75H16.25V21.25H13.75V13.75ZM15 2.5C8.1 2.5 2.5 8.1 2.5 15C2.5 21.9 8.1 27.5 15 27.5C21.9 27.5 27.5 21.9 27.5 15C27.5 8.1 21.9 2.5 15 2.5ZM15 25C9.4875 25 5 20.5125 5 15C5 9.4875 9.4875 5 15 5C20.5125 5 25 9.4875 25 15C25 20.5125 20.5125 25 15 25Z" fill="#41B8B6"/>
             </svg> 
             `,
+          class: "info-btn",
+          attr: {
+            titie: 'add a new contact',
+            id: 'info-btn',
+            'data-bs-toggle': "modal",
+            'data-bs-target': "#pswdRules"
+          }
         },
       ],
       info: true,
@@ -254,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           data: "password",
           title: "Password",
-
           render: function (data, type, row) {
             return `<button class="border-0 bg-transparent" onclick="copyData('${data}')"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20.041 2.16797L10.291 2.16797C9.09935 2.16797 8.12435 3.14297 8.12435 4.33464L8.12435 17.3346C8.12435 18.5263 9.09935 19.5013 10.291 19.5013L20.041 19.5013C21.2327 19.5013 22.2077 18.5263 22.2077 17.3346L22.2077 4.33464C22.2077 3.14297 21.2327 2.16797 20.041 2.16797ZM20.041 17.3346H10.291L10.291 4.33464L20.041 4.33464L20.041 17.3346ZM3.79102 16.2513L3.79102 14.0846H5.95768V16.2513H3.79102ZM3.79102 10.293H5.95768V12.4596H3.79102L3.79102 10.293ZM11.3743 21.668H13.541V23.8346H11.3743V21.668ZM3.79102 20.043V17.8763H5.95768V20.043H3.79102ZM5.95768 23.8346C4.76602 23.8346 3.79102 22.8596 3.79102 21.668H5.95768V23.8346ZM9.74935 23.8346H7.58268V21.668H9.74935V23.8346ZM15.166 23.8346V21.668H17.3327C17.3327 22.8596 16.3577 23.8346 15.166 23.8346ZM5.95768 6.5013V8.66797H3.79102C3.79102 7.4763 4.76602 6.5013 5.95768 6.5013Z" fill="#5F5F5F"/>
@@ -266,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
           title: "Action",
           orderable: false,
           searchable: false,
-          className: "dt-center",
+          className: 'text-nowrap dt-center',
           defaultContent: `  <td class="d-flex  text-center justify-content-center ">
                         <button type="button" class="close border-0 pe-0 bg-transparent" id="edit-button"    data-bs-toggle="modal"
                             data-bs-target="#edit">
@@ -296,57 +280,12 @@ document.addEventListener("DOMContentLoaded", function () {
     password.rows.add(tableData).draw();
     var tableRows = document.querySelectorAll("#password_table tbody tr");
     tableRows.forEach(function (row) {
-      row.style.width = "100vw !important"; // Set the desired width here
+      row.style.width = "100vw !important";
     });
+
   }
-  // ! export the data in cvs file
-  $(document).ready(function () {
-    $("#export_data").on("click", function () {
-      // Access the DataTable instance
-      var table = $("#password_table").DataTable();
 
-      // Get the table header
-      var header = table.columns().header().toArray();
-      var headerRow = header.map(function (th) {
-        return $(th).text().trim();
-      });
-
-      // Get the table data
-      var data = table.data().toArray();
-
-      // Combine header and data
-      var allData = [headerRow].concat(data);
-
-      // Convert data to CSV format
-      var csvContent =
-        "data:text/csv;charset=utf-8," +
-        allData.map((e) => (Array.isArray(e) ? e.join(",") : e)).join("\n");
-
-      // Create a blob object representing the data
-      var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-
-      // Create a link element to trigger the download
-      var link = document.createElement("a");
-      if (link.download !== undefined) {
-        // feature detection
-        // Create a link to the blob
-        var url = URL.createObjectURL(blob);
-        link.setAttribute("href", url);
-        // Set the file name
-        link.setAttribute("download", "table_data.csv");
-        // Append the link to the body
-        document.body.appendChild(link);
-        // Trigger the click event to start the download
-        link.click();
-        // Clean up resources
-        document.body.removeChild(link);
-      } else {
-        console.log("Your browser does not support this feature");
-      }
-    });
-  });
-});
-
+}
 document.addEventListener("DOMContentLoaded", function () {
   var actions_groups_table = $("#actions_groups_table");
   if (actions_groups_table.length) {
@@ -421,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (people_table.length) {
     // Initialize DataTable for People
     var people = people_table.DataTable({
-      //  paging: false,
+
       lengthChange: true,
       orderable: false,
       searchable: false,
@@ -454,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
           $("#notes_table_wrapper").addClass("table");
         }
       },
+
       columns: [
         {
           title: "Actions",
@@ -466,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
       columnDefs: [
         { className: "f_1", targets: [0] },
         { className: "f_2", targets: [1] },
-      ],
+      ]
     });
 
     people.rows.add(people_data).draw();
@@ -488,3 +428,95 @@ document.addEventListener("DOMContentLoaded", function () {
     people_table.parent().find(".toolbar").append(selectAllCheckboxPeople);
   }
 });
+
+
+function clickInput() {
+  alert("hi")
+  document.getElementById('fileInput').click();
+}
+function handleFileUpload() {
+  var fileInput = document.getElementById('fileInput');
+  var file = fileInput.files[0];
+  if (file.name.toLowerCase().endsWith('.csv')) {
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+      var csvData = event.target.result;
+      updateDataTable(csvData);
+    };
+
+    reader.readAsText(file);
+  } else {
+    alert('Please select a CSV file.');
+  }
+}
+
+function updateDataTable(csvData) {
+  var { headers, newData } = parseCSV(csvData);
+  console.log(headers, newData)
+  var password_table = document.getElementById("password_table");
+  if (password_table) {
+    var password = $("#password_table").DataTable();
+    console.log(password)
+    // $('#password_table thead').empty(); // Clear existing header
+    // $('#password_table tbody').empty();
+    // var newColumns = headers.map(header => ({ data: header, title: header }));
+    // var password_table = document.getElementById("password_table");
+    // password.DataTable(password_table,{
+    //     data: newData,
+    //     columns: newColumns,
+    //     // Add your other DataTable options here
+    // });
+  }
+}
+
+function parseCSV(csvData) {
+  var lines = csvData.split('\n');
+  var headers = lines[0].split(',');
+  var newData = [];
+
+  for (var i = 1; i < lines.length; i++) {
+    var obj = {};
+    var currentLine = lines[i].split(',');
+
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = currentLine[j].trim();
+    }
+
+    newData.push(obj);
+  }
+
+  return { headers, newData };
+}
+// ! export the data in cvs file
+document.addEventListener("DOMContentLoaded", function () {
+  $(document).ready(function () {
+    $("#export_data").on("click", function () {
+      var table = $("#password_table").DataTable();
+      var header = table.columns().header().toArray();
+      var headerRow = header.map(function (th) {
+        return $(th).text().trim();
+      });
+
+      // Get the table data
+      var data = table.data().toArray();
+      var allData = [headerRow].concat(data);
+      var csvContent =
+        "data:text/csv;charset=utf-8," +
+        allData.map((e) => (Array.isArray(e) ? e.join(",") : e)).join("\n");
+      var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      var link = document.createElement("a");
+      if (link.download !== undefined) {
+        var url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "table_data.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        console.log("Your browser does not support this feature");
+      }
+    });
+  });
+})
+

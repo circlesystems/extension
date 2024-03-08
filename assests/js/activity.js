@@ -1,8 +1,59 @@
 var activitydata = [
-  ["2024-03-01", "User logged in", "john_doe", "example.com", "Admin"],
-  ["2024-03-02", "File uploaded", "jane_smith", "example.net", "Guest"],
-
+    [
+        ["2024-03-01", "09:00:00"],
+        {
+            title: "User logged in",
+            desc: "clicked on a button/link to",
+            conc: "Submit theform",
+        },
+        "hefigi4136@tospage.com",
+        "id.freepikcompany.com",
+        "",
+    ],
+    [
+        ["2024-03-01", "09:00:00"],
+        {
+            title: "User logged in",
+            desc: "clicked on a button/link to",
+            conc: "Submit theform",
+        },
+        "hefigi4136@tospage.com",
+        "id.freepikcompany.com",
+        "",
+    ],
+    [
+        ["2024-03-01", "09:00:00"],
+        {
+            title: "User logged in",
+            desc: "clicked on a button/link to",
+            conc: "Submit theform",
+        },
+        "hefigi4136@tospage.com",
+        "id.freepikcompany.com",
+        "",
+    ],[
+        ["2024-03-01", "09:00:00"],
+        {
+            title: "User logged in",
+            desc: "clicked on a button/link to",
+            conc: "Submit theform",
+        },
+        "hefigi4136@tospage.com",
+        "id.freepikcompany.com",
+        "",
+    ],[
+        ["2024-03-01", "09:00:00"],
+        {
+            title: "User logged in",
+            desc: "clicked on a button/link to",
+            conc: "Submit theform",
+        },
+        "hefigi4136@tospage.com",
+        "id.freepikcompany.com",
+        "",
+    ],
 ];
+
 document.addEventListener("DOMContentLoaded", function () {
     var activity_table = document.getElementById("activity_table");
     var distinctCheckbox = document.getElementById("distinctCheckbox");
@@ -49,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             language: {
                 search: "Search records:",
-                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
                 searchBuilder: {
                     value: "Option",
                 },
@@ -67,25 +118,49 @@ document.addEventListener("DOMContentLoaded", function () {
                 var targetLink = $('a[aria-current="page"]');
                 targetLink.text(+pageInfo.page + 1 + " of " + +pageInfo.pages);
             },
-            columns: [
-                { title: "Date" },
-                { title: "Event & Message" },
-                { title: "Username {login}" },
-                { title: "Domain" },
-                { title: "Used By" },
+            columns: [{
+                title: "Date",
+                render: function (data, type, row) {
+                    console.log(data);
+                    var dateTime = Array.isArray(data) ? data : []; // Extract date and time from the first element of the array
+                    var date = dateTime[0]; // Access date
+                    var time = dateTime[1] || ""; // Access time (if available)
+                    return `<div class='ps-3 pt-1'><div class='text-nowrap fs-16 fw-normal ' > ${date}  </div><div class='text-nowrap gray_color'>${time}</div></div>`; // Return HTML content
+                },
+            },
+            {
+                title: "Event & Message",
+                render: function (details, type, row) {
+                    const {
+                        title,
+                        desc,
+                        conc
+                    } = details;
+                    return `<div class='ps-3 pt-1' ><div class='text-nowrap  fs-16 fw-normal'> ${title}  </div><div class='text-nowrap gray_color'>${desc}</div> <div class='text-nowrap gray_color'>${conc}</div></div>`; // Return HTML content
+                },
+            },
+            {
+                title: "Username (login)",
+                render: function (data, type, row) {
+                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                },
+            },
+            {
+                title: "Domain",
+                render: function (data, type, row) {
+                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                },
+            },
+            {
+                title: "Used By",
+                render: function (data, type, row) {
+                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                },
+            },
             ],
-            // columnDefs: [
-            //     { className: "f_1", targets: [0] },
-            //     { className: "f_2", targets: [1] },
-            // ],
         });
 
         notes.rows.add(activitydata).draw();
-        var tableRows = document.querySelectorAll("#activity_table tbody tr");
-        tableRows.forEach(function (row) {
-            // row.style.width = "100% !important"; 
-        });
-
         // Add event listener to checkbox
         distinctCheckbox.addEventListener("change", function () {
             var distinctDomains = [];

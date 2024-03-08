@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             paging: true,
             lengthChange: true,
             pagingType: 'simple_numbers',
-            dom: '<"toolbar d-flex justify-content-lg-end justify-content-center  gap-3  flex-wrap align-items-center "ipfB>',
+            dom: '<"toolbar d-flex justify-content-lg-end justify-content-center  gap-3 pe-3 flex-wrap align-items-center "ipfB>',
             buttons: [
                 {
                     text: `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
