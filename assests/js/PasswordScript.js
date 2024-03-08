@@ -1,75 +1,3 @@
-const hideModal = (id) => {
-  $(id).modal("hide");
-};
-
-// ! delete note
-const deleteNote = (rowData, index) => {
-  $("#delete").modal("show");
-
-  $("#deleteConfirmBtn").on("click", function () {
-    tableData.splice(index, 1);
-    $("#password_table").DataTable().clear().rows.add(tableData).draw();
-    $("#delete").modal("hide");
-  });
-};
-
-//? edit password in table
-
-const editNote = (rowData, index) => {
-  let count = 0;
-  $("#edit").modal("show");
-
-  var editNoteDesc = $("#editNoteDescription");
-  console.log(editNoteDesc);
-  if (editNoteDesc.length >= 4) {
-    editNoteDesc.val(rowData[3]);
-    $("#saveEditBtn").on("click", function () {
-      var newDescription = editNoteDesc.val();
-      const newItem = [newDescription];
-      console.log(newItem);
-
-      const updatedData = tableData.map((item, ind) => {
-        return ind === index ? newItem : item;
-      });
-      count++;
-      data = updatedData;
-      console.log(data, count);
-      $("#password_table").DataTable().clear().rows.add(updatedData).draw();
-      $("#edit").modal("hide");
-    });
-  }
-};
-
-//! copy text
-function copyData(data) {
-  // Create a textarea element to hold the data temporarily
-  var textarea = document.createElement("textarea");
-  // Set the value of the textarea to the data passed as parameter
-  textarea.value = data;
-  // Append the textarea to the document body
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
-  alert("Password Copied!")
-}
-
-//* Function to share note
-const shareNote = (rowData, index) => {
-  // Implement your logic to share the note here using the rowData
-  console.log("Sharing note:", rowData, index);
-  $("#share").modal("show");
-  $(".fileName").text(rowData.domain);
-  $("#date").text(rowData.date);
-  $("#user").text(rowData.username);
-
-  console.log(rowData);
-};
-
-const showalert = () => {
-  $("#share").modal("hide");
-  $("#NoteShared").modal("show");
-};
 
 var tableData = [
   {
@@ -101,16 +29,19 @@ var groupsData = [
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
-  createPswds()
+  createPswds(tableData)
 });
-function createPswds() {
+function createPswds(data, newprops) {
   var password_table = document.getElementById("password_table");
   if (password_table) {
     var password = new DataTable(password_table, {
+      ...newprops,
       pagingType: "simple_numbers",
       pageLength: 4,
+      destroy: true,
       searching: true,
       lengthChange: true,
+      retrieve: true,
       oLanguage: {
         Search: "",
       },
@@ -218,11 +149,9 @@ function createPswds() {
       drawCallback: function (settings) {
         var api = this.api();
         var pageInfo = api.page.info();
-        console.log(+pageInfo.page + 1 + " of " + +pageInfo.pages);
         var targetLink = $('a[aria-current="page"]');
         targetLink.text(+pageInfo.page + 1 + " of " + pageInfo.pages);
       },
-      // Your DataTable initialization options
       columns: [
         { data: "domain", title: "Domain Name" },
         { data: "date", title: "Date" },
@@ -277,7 +206,7 @@ function createPswds() {
       ],
     });
 
-    password.rows.add(tableData).draw();
+    password.rows.add(data).draw();
     var tableRows = document.querySelectorAll("#password_table tbody tr");
     tableRows.forEach(function (row) {
       row.style.width = "100vw !important";
@@ -431,7 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function clickInput() {
-  alert("hi")
   document.getElementById('fileInput').click();
 }
 function handleFileUpload() {
@@ -442,6 +370,7 @@ function handleFileUpload() {
 
     reader.onload = function (event) {
       var csvData = event.target.result;
+      console.log(csvData)
       updateDataTable(csvData);
     };
 
@@ -452,42 +381,54 @@ function handleFileUpload() {
 }
 
 function updateDataTable(csvData) {
-  var { headers, newData } = parseCSV(csvData);
-  console.log(headers, newData)
-  var password_table = document.getElementById("password_table");
-  if (password_table) {
-    var password = $("#password_table").DataTable();
-    console.log(password)
-    // $('#password_table thead').empty(); // Clear existing header
-    // $('#password_table tbody').empty();
-    // var newColumns = headers.map(header => ({ data: header, title: header }));
-    // var password_table = document.getElementById("password_table");
-    // password.DataTable(password_table,{
-    //     data: newData,
-    //     columns: newColumns,
-    //     // Add your other DataTable options here
-    // });
+  var   newData  = parseCSV(csvData);
+  var password_table = $("#password_table");
+  if (password_table.length) {
+    var password = password_table.DataTable();
+    if (password) {
+    console.log('chal gya')
+      createPswds(newData, { destroy: true });
+      $('#importModal').modal('hide')
+    }
   }
 }
-
 function parseCSV(csvData) {
   var lines = csvData.split('\n');
-  var headers = lines[0].split(',');
   var newData = [];
 
-  for (var i = 1; i < lines.length; i++) {
-    var obj = {};
+  for (var i = 0; i < lines.length; i++) {
     var currentLine = lines[i].split(',');
-
-    for (var j = 0; j < headers.length; j++) {
-      obj[headers[j]] = currentLine[j].trim();
-    }
-
-    newData.push(obj);
+    newData.push(currentLine.map(item => item.trim()));
+    newData.shift()
   }
 
-  return { headers, newData };
+  return newData;
 }
+
+
+// function parseCSV(csvData) {
+//   var lines = csvData.split('\n');
+//   var headers = lines[0].split(',');
+//   var newData = [];
+
+//   for (var i = 1; i < lines.length; i++) {
+//       var obj = {};
+//       var currentLine = lines[i].split(',');
+
+//       if (currentLine.length !== headers.length) {
+//           continue;
+//       }
+
+//       for (var j = 0; j < headers.length; j++) {
+//           obj[headers[j]] = currentLine[j] ? currentLine[j].trim() : '';
+//       }
+
+//       newData.push(obj);
+//   }
+
+//   return { headers, newData };
+// }
+
 // ! export the data in cvs file
 document.addEventListener("DOMContentLoaded", function () {
   $(document).ready(function () {
@@ -520,3 +461,75 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })
 
+const hideModal = (id) => {
+  $(id).modal("hide");
+};
+
+// ! delete note
+const deleteNote = (rowData, index) => {
+  $("#delete").modal("show");
+
+  $("#deleteConfirmBtn").on("click", function () {
+    tableData.splice(index, 1);
+    $("#password_table").DataTable().clear().rows.add(tableData).draw();
+    $("#delete").modal("hide");
+  });
+};
+
+//? edit password in table
+
+const editNote = (rowData, index) => {
+  let count = 0;
+  $("#edit").modal("show");
+
+  var editNoteDesc = $("#editNoteDescription");
+  console.log(editNoteDesc);
+  if (editNoteDesc.length >= 4) {
+    editNoteDesc.val(rowData[3]);
+    $("#saveEditBtn").on("click", function () {
+      var newDescription = editNoteDesc.val();
+      const newItem = [newDescription];
+      console.log(newItem);
+
+      const updatedData = tableData.map((item, ind) => {
+        return ind === index ? newItem : item;
+      });
+      count++;
+      data = updatedData;
+      console.log(data, count);
+      $("#password_table").DataTable().clear().rows.add(updatedData).draw();
+      $("#edit").modal("hide");
+    });
+  }
+};
+
+//! copy text
+function copyData(data) {
+  // Create a textarea element to hold the data temporarily
+  var textarea = document.createElement("textarea");
+  // Set the value of the textarea to the data passed as parameter
+  textarea.value = data;
+  // Append the textarea to the document body
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  alert("Password Copied!")
+}
+
+//* Function to share note
+const shareNote = (rowData, index) => {
+  // Implement your logic to share the note here using the rowData
+  console.log("Sharing note:", rowData, index);
+  $("#share").modal("show");
+  $(".fileName").text(rowData.domain);
+  $("#date").text(rowData.date);
+  $("#user").text(rowData.username);
+
+  console.log(rowData);
+};
+
+const showalert = () => {
+  $("#share").modal("hide");
+  $("#NoteShared").modal("show");
+};

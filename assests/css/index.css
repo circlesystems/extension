@@ -204,3 +204,6 @@ body {
 .color_green{
     color: #41b8b6 !important;
 }
+table.dataTable thead th{
+    background-color: white !important;
+}
