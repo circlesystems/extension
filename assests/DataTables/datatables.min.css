@@ -480,7 +480,7 @@ div.dt-container div.dt-search label {
 }
 
 div.dt-container div.dt-search input {
-  margin-left: .5em;
+  /* margin-left: .5em; */
   display: inline-block;
   width: auto
 }

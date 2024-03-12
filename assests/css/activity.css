@@ -298,10 +298,10 @@ table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.
   text-align: left !important;
 }
     .dt-search input{
-        width: 95% !important;
+        width: 100% !important;
     }
     div.dt-container div.dt-search {
-        width:  95%;
+        width:  100%;
         margin: auto;
     }
     .search_icon {
