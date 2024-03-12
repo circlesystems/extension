@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="./assests/css/index.css">
     <link href="./assests/DataTables/datatables.min.css" rel="stylesheet">
     <link href="./assests/css/activity.css" rel="stylesheet">
-
+<style>
+    table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+        text-align: center;
+        text-wrap: nowrap;
+        padding: 20px 30px;
+        padding-top: 14px !important;
+        padding-bottom: 0px !important;
+    }
+</style>
 </head>
 <body>
     <!-- section navbar start -->
@@ -18,9 +26,9 @@
             <div>
                 <a href="/"><img src="./assests/images/Frame 6.png"></a>
             </div>
-            <div>
-                <a href=""><img src="./assests/images/Frame 707.png"></a>
-                <a href=""><img src="./assests/images/Frame 710.png"></a>
+            <div class="nav_icons">
+                <a href="/"><img src="./assests/images/home.svg"></a>
+                <a href="/"><img src="./assests/images/logout.svg"></a>
             </div>
         </div>
     </section>

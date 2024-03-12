@@ -2,8 +2,9 @@ body{
     overflow: hidden;
 }
 table.dataTable thead>tr>th.dt-orderable-asc span.dt-column-order, table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order, table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order, table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order, table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order, table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order, table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order, table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order {
-    position: absolute;
-    right: 5px;
+    display: inline-grid;
+    padding-left: 8px;
+    transform: translateY(-6px);
 }
 table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
     text-align: center;
@@ -119,7 +120,7 @@ input[type="checkbox" i] {
     transform: translate(10px, 10px);
 }
 }
-@media screen and (max-width: 952px) {
+@media screen and (max-width: 1025px) {
     .notes_title {
         position: relative;
         margin: auto;
@@ -256,7 +257,16 @@ table.table.dataTable {
     overflow-x: auto !important;
     /* display: block; */
 }
-
+#activity_table thead tr th:last-child,
+#activity_table  tbody tr td:last-child{
+  padding-right: 100px !important;
+  text-align: left !important;
+}
+#activity_table thead tr th:first-child,
+#activity_table  tbody tr td:first-child{
+  padding-left: 100px !important;
+  text-align: left !important;
+}
 table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.dt-orderable-desc:hover, table.dataTable thead>tr>td.dt-orderable-asc:hover, table.dataTable thead>tr>td.dt-orderable-desc:hover {
     outline:none;
 }
@@ -277,6 +287,16 @@ table.dataTable thead>tr>th.dt-orderable-asc:hover, table.dataTable thead>tr>th.
     
 }
 @media (max-width:992px) {
+    #activity_table thead tr th:last-child,
+#activity_table  tbody tr td:last-child{
+  padding-right: 50px !important;
+  text-align: left !important;
+}
+#activity_table thead tr th:first-child,
+#activity_table  tbody tr td:first-child{
+  padding-left: 50px !important;
+  text-align: left !important;
+}
     .dt-search input{
         width: 95% !important;
     }

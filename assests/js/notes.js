@@ -27,7 +27,7 @@ var groupsData = [
 ];
 var data = [
     ["Note 1 Title", "Note 1 Description"],
-    ["Note 2 Title", "Note 2 Description"],
+    ["Note second Title", "Note 2 Description"],
     ["Note 3 Title", "Note 3 Description"],
 
 

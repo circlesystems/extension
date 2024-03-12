@@ -65,13 +65,17 @@ a{
 #notes_table tbody tr:nth-child(odd),
 #people_table tbody tr:nth-child(odd),
 #actions_groups_table tbody tr:nth-child(odd) {
-    background-color: #f6f8fb !important;
+    background-color: #fafafa !important;
 }
 #password_table tr:nth-child(even),
 #notes_table tbody tr:nth-child(even),
 #people_table tbody tr:nth-child(even),
 #actions_groups_table tbody tr:nth-child(even) {
     background-color: #fff;
+}
+table.table.dataTable>tbody>tr {
+   
+    border-bottom: 1px solid #D9D9D9
 }
 body {
     background-color: #F6F8FB;
@@ -91,6 +95,15 @@ body {
     background-color: transparent;
     border:none; 
 } 
+table thead tr{
+    background-color: white !important;
+}
+.del_con{
+        align-items: center;
+        display: flex;
+        gap: 32px;
+        margin-top: 32px !important;
+}
 .form-check-input {
     background-color: transparent;
 
@@ -163,14 +176,24 @@ body {
     border-radius: 8px;
     border: 1px #41B8B6 solid;
   }
-  
-  .modal_btn:hover {
-  
+  .modal_btn:disabled {
+    background: #F6F8FB;
+    color: #D9D9D9;
+    cursor: not-allowed;
+    border: none;
+}
+
+.modal_btn:hover:not(:disabled) {
     border: 1px #41B8B6 solid;
     padding: 12px 47px;
     background-color: white;
     color: #41B8B6 !important;
-  }
+}
+.target .dt-column-title {
+    transform: translateY(-12px);
+    display: block;
+}
+
  .bg_main{
     background-color: #41b8b6;
  }
@@ -206,4 +229,9 @@ body {
 }
 table.dataTable thead th{
     background-color: white !important;
+}
+.nav_icons{
+    display: flex;
+    align-items: center;
+    gap: 28px;
 }

@@ -22,9 +22,9 @@
             <div>
                 <a href='/'><img src="./assests/images/Frame 6.png"></a>
             </div>
-            <div>
-                <a href><img src="./assests/images/Frame 707.png"></a>
-                <a href><img src="./assests/images/Frame 710.png"></a>
+            <div class="nav_icons">
+                <a href="/"><img src="./assests/images/home.svg"></a>
+                <a href="/"><img src="./assests/images/logout.svg"></a>
             </div>
         </div>
     </section>
@@ -132,7 +132,7 @@
                 <div class="mb-2 px-4">
                     <label for="title" class="form-label">Group Name:</label>
                     <input minlength="5" required id="email" type="text" class="form-control" id="title"
-                        placeholder="Enter Email">
+                        placeholder="Enter Group Name">
                 </div>
                 <div class="modal-body  mb-1 p-0">
                     <div class="tab-content" id="myTabContent">
@@ -154,7 +154,7 @@
                         </div>
                     </div>
 
-                    <button onclick="create_group()"
+                    <button onclick="create_group()" disabled
                         class="   w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Create
                         Group</button>
                 </div>
@@ -178,7 +178,7 @@
                 <div class="mb-2 px-4">
                     <label for="title" class="form-label">Group Name:</label>
                     <input minlength="5" required id="email" type="text" class="form-control" id="title"
-                        value="test name" placeholder="Enter Email">
+                        value="test name" placeholder="Enter Group Name">
                 </div>
                 <div class="modal-body  mb-1 p-0">
                     <div class="tab-content" id="myTabContent">
@@ -193,7 +193,7 @@
                         </div>
                     </div>
 
-                    <button onclick="se_row()"
+                    <button onclick="se_row()" disabled
                         class="w-75  mx-auto justify-content-center d-flex modal_btn flex-grow-1 mb-3 mt-3">Save
                         Group</button>
                 </div>
@@ -277,8 +277,8 @@
                 </div>
                 <div class="modal-body  mb-1">
                     <p class="mt-1 mb-2 colorText text-center ">Are you sure you want to delete this group?</p>
-                    <div class="text-center mb-2 mt-3 justify-content-around flex-nowrap">
-                        <button id="deleteConfirmBtn" onclick="confirmDelete()" class="modal_btn flex-grow-1">Yes,
+                    <div class="text-center  mb-2  del_con justify-content-around flex-nowrap">
+                        <button id="deleteConfirmBtn" onclick="confirmDelete()" style="padding: 12px 47px !important; border-radius:8px" class=" btn btn-outline-primary flex-grow-1">Yes,
                             Delete</button>
                         <button onclick="cancelDelete()" class="modal_btn flex-grow-1">Don't Delete</button>
                     </div>

@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     $(".dt-search")
                         .append(
                             `
-                            <span class="input-group-text position-absolute search_icon ps-3" id="basic-addon1">
+                            <span class="input-group-text position-absolute search_icon   " id="basic-addon1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-search" viewBox="0 0 16 16">
                                     <path
@@ -120,44 +120,49 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             columns: [{
                 title: "Date",
+                className: "text-start px-5   ",
                 render: function (data, type, row) {
                     console.log(data);
                     var dateTime = Array.isArray(data) ? data : []; // Extract date and time from the first element of the array
                     var date = dateTime[0]; // Access date
                     var time = dateTime[1] || ""; // Access time (if available)
-                    return `<div class='ps-3 pt-1'><div class='text-nowrap fs-16 fw-normal ' > ${date}  </div><div class='text-nowrap gray_color'>${time}</div></div>`; // Return HTML content
+                    return `<div class='   pt-1'><div class='text-nowrap fs-16 fw-normal ' > ${date}  </div><div class='text-nowrap gray_color'>${time}</div></div>`; // Return HTML content
                 },
             },
             {
                 title: "Event & Message",
+                className: "text-start px-5   ",
                 render: function (details, type, row) {
                     const {
                         title,
                         desc,
                         conc
                     } = details;
-                    return `<div class='ps-3 pt-1' ><div class='text-nowrap  fs-16 fw-normal'> ${title}  </div><div class='text-nowrap gray_color'>${desc}</div> <div class='text-nowrap gray_color'>${conc}</div></div>`; // Return HTML content
+                    return `<div class='   pt-1' ><div class='text-nowrap  fs-16 fw-normal'> ${title}  </div><div class='text-nowrap gray_color'>${desc}</div> <div class='text-nowrap gray_color'>${conc}</div></div>`; // Return HTML content
                 },
             },
             {
                 title: "Username (login)",
+                className: "text-start px-5   ",
                 render: function (data, type, row) {
-                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                    return `<div class='   p-3 gray_color' >${data || "--"}</div>`;
                 },
             },
             {
                 title: "Domain",
+                className: "text-start px-5   ",
                 render: function (data, type, row) {
-                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                    return `<div class='   p-3 gray_color' >${data || "--"}</div>`; 
                 },
             },
             {
                 title: "Used By",
+                className: "text-start px-5   ",
                 render: function (data, type, row) {
-                    return `<div class='ps-3 p-3 gray_color' >${data || "--"}</div>`; // Return HTML content
+                    return `<div class='  p-3 gray_color' >${data || "--"}</div>`;
                 },
             },
-            ],
+            ]
         });
 
         notes.rows.add(activitydata).draw();

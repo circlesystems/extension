@@ -146,10 +146,7 @@ table.dataTable td {
     text-wrap: nowrap;
     border-bottom: none;
 }
-table.table.dataTable>tbody>tr {
-   
-    border-bottom: 1px rgb(228, 220, 220) solid;
-}
+
 .f_1{
     font-size: 16px !important;
     font-weight: 500;

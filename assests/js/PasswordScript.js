@@ -46,7 +46,7 @@ function createPswds(data, newprops) {
         Search: "",
       },
       pagingType: "simple_numbers",
-      dom: '<"toolbar d-flex px-3  px-md-4 justify-content-center justify-content-lg-end justify-content-center  gap-3  flex-wrap align-items-center" ipfB> ',
+      dom: '<"toolbar d-flex px-3 pswds_toolbar  px-md-4 justify-content-center justify-content-lg-end justify-content-center  gap-3  flex-wrap align-items-center" ipfB> ',
       language: {
         searchPlaceholder: "Search",
         info: "Showing _TOTAL_ entries",
@@ -151,12 +151,21 @@ function createPswds(data, newprops) {
         var pageInfo = api.page.info();
         var targetLink = $('a[aria-current="page"]');
         targetLink.text(+pageInfo.page + 1 + " of " + pageInfo.pages);
+        // Get all buttons with class btn-secondary
+        var buttons = document.querySelectorAll('.btn.btn-secondary');
+
+        // Loop through each button and remove the class
+        buttons.forEach(function (button) {
+          button.classList.remove('btn-secondary');
+        });
+
       },
       columns: [
-        { data: "domain", title: "Domain Name" },
-        { data: "date", title: "Date" },
+        { data: "domain", title: "Domain Name",className:  "text-start px-5 pt-4 pb-3",  },
+        { data: "date", title: "Date" , className: "text-start px-4 pt-4 pb-3"  },
         {
           data: "username",
+          className: "text-start px-5 pt-4 pb-3",
           title: "User Name",
           render: function (data, type, row) {
             return `<button class="border-0 bg-transparent" onclick="copyData('${data}')"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,6 +177,7 @@ function createPswds(data, newprops) {
         {
           data: "password",
           title: "Password",
+          className: "text-start px-5 pt-4 pb-3 ",
           render: function (data, type, row) {
             return `<button class="border-0 bg-transparent" onclick="copyData('${data}')"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20.041 2.16797L10.291 2.16797C9.09935 2.16797 8.12435 3.14297 8.12435 4.33464L8.12435 17.3346C8.12435 18.5263 9.09935 19.5013 10.291 19.5013L20.041 19.5013C21.2327 19.5013 22.2077 18.5263 22.2077 17.3346L22.2077 4.33464C22.2077 3.14297 21.2327 2.16797 20.041 2.16797ZM20.041 17.3346H10.291L10.291 4.33464L20.041 4.33464L20.041 17.3346ZM3.79102 16.2513L3.79102 14.0846H5.95768V16.2513H3.79102ZM3.79102 10.293H5.95768V12.4596H3.79102L3.79102 10.293ZM11.3743 21.668H13.541V23.8346H11.3743V21.668ZM3.79102 20.043V17.8763H5.95768V20.043H3.79102ZM5.95768 23.8346C4.76602 23.8346 3.79102 22.8596 3.79102 21.668H5.95768V23.8346ZM9.74935 23.8346H7.58268V21.668H9.74935V23.8346ZM15.166 23.8346V21.668H17.3327C17.3327 22.8596 16.3577 23.8346 15.166 23.8346ZM5.95768 6.5013V8.66797H3.79102C3.79102 7.4763 4.76602 6.5013 5.95768 6.5013Z" fill="#5F5F5F"/>
@@ -179,7 +189,7 @@ function createPswds(data, newprops) {
           title: "Action",
           orderable: false,
           searchable: false,
-          className: 'text-nowrap dt-center',
+          className: 'text-nowrap  dt-center text-start px-5 pt-4 pb-3  target',
           defaultContent: `  <td class="d-flex  text-center justify-content-center ">
                         <button type="button" class="close border-0 pe-0 bg-transparent" id="edit-button"    data-bs-toggle="modal"
                             data-bs-target="#edit">
@@ -381,12 +391,12 @@ function handleFileUpload() {
 }
 
 function updateDataTable(csvData) {
-  var   newData  = parseCSV(csvData);
+  var newData = parseCSV(csvData);
   var password_table = $("#password_table");
   if (password_table.length) {
     var password = password_table.DataTable();
     if (password) {
-    console.log('chal gya')
+      console.log('chal gya')
       createPswds(newData, { destroy: true });
       $('#importModal').modal('hide')
     }
